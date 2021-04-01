@@ -11,11 +11,22 @@ namespace WebRPG.Controllers
     [Route("[controller]")]
     public class CharacterController : ControllerBase
     {
-        private static Character knight = new Character();
+        private static List<Character> characters = new List<Character>
+        {
+            new Character(),
+            new Character {Name = "Sam"}
+        };
 
+        [HttpGet("GetAll")]
         public IActionResult Get()
         {
-            return Ok(knight);
+            return Ok(characters);
+        }
+
+        [Route("GetFirst")]
+        public IActionResult GetSingle()
+        {
+            return Ok(characters[0]);
         }
     }
 }

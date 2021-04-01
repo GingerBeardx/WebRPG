@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebRPG.DTOs.Character;
 using WebRPG.Models;
 
 namespace WebRPG.Services.CharacterService
 {
     public interface ICharacterService
     {
-        Task<ServiceResponse<List<Character>>> GetAllCharacters();
-        Task<ServiceResponse<Character>> GetCharacterById(int id);
-        Task<ServiceResponse<List<Character>>> AddCharacter(Character character);
+        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
+        Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
+        Task<ServiceResponse<List<GetCharacterDto>>> AddCharacter(AddCharacterDto character);
     }
 }

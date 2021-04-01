@@ -14,7 +14,7 @@ namespace WebRPG.Controllers
         private static List<Character> characters = new List<Character>
         {
             new Character(),
-            new Character {Name = "Sam"}
+            new Character {Id = 1, Name = "Sam"}
         };
 
         [HttpGet("GetAll")]
@@ -23,10 +23,10 @@ namespace WebRPG.Controllers
             return Ok(characters);
         }
 
-        [Route("GetFirst")]
-        public IActionResult GetSingle()
+        [HttpGet("{id}")]
+        public IActionResult GetSingle(int id)
         {
-            return Ok(characters[0]);
+            return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
     }
 }

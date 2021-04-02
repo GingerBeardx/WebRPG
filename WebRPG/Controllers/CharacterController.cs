@@ -32,6 +32,7 @@ namespace WebRPG.Controllers
             return Ok(await _characterService.GetCharacterById(id));
         }
 
+
         [HttpPost]
         public async Task<IActionResult> AddCharacter(AddCharacterDto newCharacter)
         {
@@ -42,6 +43,17 @@ namespace WebRPG.Controllers
         public async Task<IActionResult> UpdateCharacter(UpdateCharacterDto updatedCharacter)
         {
             ServiceResponse<GetCharacterDto> response = await _characterService.UpdateCharacter(updatedCharacter);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            ServiceResponse<List<GetCharacterDto>> response = await _characterService.DeleteCharacter(id);
             if (response.Data == null)
             {
                 return NotFound(response);

@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebRPG.Data;
 using WebRPG.Services.CharacterService;
+using WebRPG.Services.WeaponService;
 
 namespace WebRPG
 {
@@ -43,6 +44,7 @@ namespace WebRPG
                     };
                 });
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IWeaponService, WeaponService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using WebRPG.DTOs.Character;
+using WebRPG.DTOs.Weapon;
 using WebRPG.Models;
 
 namespace WebRPG
@@ -14,6 +11,7 @@ namespace WebRPG
         {
             CreateMap<Character, GetCharacterDto>();
             CreateMap<AddCharacterDto, Character>();
+            CreateMap<Weapon, GetWeaponDto>();
         }
     }
 }

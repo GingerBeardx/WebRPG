@@ -1,4 +1,6 @@
-﻿namespace WebRPG.Models
+﻿using System.Collections.Generic;
+
+namespace WebRPG.Models
 {
     public class Character
     {
@@ -11,5 +13,6 @@
         public RPGClass Class { get; set; } = RPGClass.Knight;
         public User User { get; set; }
         public Weapon Weapon { get; set; }
+        public List<CharacterSkill> CharacterSkills { get; set; }
     }
 }
